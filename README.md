@@ -1,7 +1,7 @@
 # importModules
 ServiceWorker ES6 Modules Loader
 
-## Tl;Dr
+## TL;DR
 
 This lib is loaded into `ServiceWorker` via `importScripts()` and exposes the `importModules()` method.
 
