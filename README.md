@@ -21,7 +21,7 @@ self.addEventListener('install', async event => {
             'import DefautedExportable, { exp1, exp2 as exp3, exp4 } from uri/to/module.js' // complete sintax
         )
         // I know, this is a poor example :)
-        return (!!DefaultedExportable) ? Promise.resolve() : Promise.reject()
+        return (!!$.DefaultedExportable) ? Promise.resolve() : Promise.reject()
     }
     
     event.waitUntil(
@@ -30,7 +30,7 @@ self.addEventListener('install', async event => {
 })
 ```
 
-What does it do? this search the dependencies in text format (`Fetch()`), parse the import instructions to encapsulate the imported script in an **IIEF** function ... inject the dependencies with their respective alias, namespaces and renames to the local scope (`self`) with `eval()`
+What does it do? this search the dependencies in text format (`Fetch()`), parse the import instructions to encapsulate the imported script in an **IIEF** function ... inject the dependencies with their respective alias, namespaces and renames to the local scope object reference ($) with `eval()`
 
 **see "warn" section bellow**
 
@@ -38,7 +38,7 @@ What does it do? this search the dependencies in text format (`Fetch()`), parse 
 
 ## Limitations:
 
-* it doesn't matter sub dependencies
+* it doesn't matter sub dependencies [see](https://github.com/subversivo58/importModules/wiki/limitation#nested-dependencies)
 * does not work with cyclicality modules
 * it is not cached. for being stored only in memory, after the device restarts or the browser process is terminated, the reference to modules is lost
 
@@ -48,14 +48,14 @@ What does it do? this search the dependencies in text format (`Fetch()`), parse 
 
 - [ ] improve `RegExp` rules
 - [ ] save raw scripts into `IndexedDB` to "recharge" modules reference at memory
-- [ ] import sub dependencies
+- [ ] import sub dependencies - [see](https://github.com/subversivo58/importModules/issues/1)
 - [ ] more ...
 
 
 
 ## Warn:
 
-This project is a "case study"/"proof of concept", it is unstable and under development while the native solution of ES6 modules for `ServiceWorker` does not land on browsers
+This project is a "case study/proof of concept", it is unstable and under development while the native solution of ES6 modules for `ServiceWorker` does not land on browsers
 
 **You not should**:
 
