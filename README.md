@@ -30,7 +30,7 @@ self.addEventListener('install', async event => {
 })
 ```
 
-What does it do? this search the dependencies in text format (`Fetch()`), parse the import instructions to encapsulate the imported script in an **IIEF** function ... inject the dependencies with their respective alias, namespaces and renames to the local scope object reference ($) with `eval()`
+What does it do? this search the dependencies in text format (`Fetch()`), parse the import instructions to encapsulate the imported script in an **IIEF** function ... inject the dependencies with their respective alias, namespaces and renames to the local scope object reference ($) with `new Function()`
 
 **see "warn" section bellow**
 
