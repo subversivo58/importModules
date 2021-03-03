@@ -10,7 +10,7 @@ Your return is based on `Promise()`, use `async` in your `ServiceWorker` events.
 
 ```javascript
 importScripts(
-    'path/to/loader.js'
+    'path/to/importModules.js'
 )
 
 self.addEventListener('install', async event => {
@@ -18,7 +18,7 @@ self.addEventListener('install', async event => {
     const Setup = async () => {
         // happiness
         await importModules(
-            'import DefautedExportable, { exp1, exp2 as exp3, exp4 } from uri/to/module.js' // complete sintax
+            'import DefaultedExportable, { exp1, exp2 as exp3, exp4 } from uri/to/module.js' // complete syntax
         )
         // I know, this is a poor example :)
         return (!!$.DefaultedExportable) ? Promise.resolve() : Promise.reject()
@@ -68,7 +68,7 @@ This project is a "case study/proof of concept", it is unstable and under develo
 
 MIT License
 
-Copyright (c) 2020 Lauro Moraes [https://github.com/subversivo58]
+Copyright (c) 2020 - 2021 Lauro Moraes [https://github.com/subversivo58]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
